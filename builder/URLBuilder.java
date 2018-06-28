@@ -315,17 +315,16 @@ public class URLBuilder
         String markers = ""; //to concatenate/store all marker locations
         String paths = ""; //to concatenate/store all path(s) information
         String size; //to concatenate/store size information
-        String mapTypeStr; //to store map type information
+        String mapTypeStr = ""; //to store map type information
     
         switch(mapType)
         {
-            case ROADMAP: mapTypeStr = "";
+            case ROADMAP:
                  break;
-            case SATELLITE: mapTypeStr = mapTypePrefix + mapType.toLowercaseString();
-                 break;
-            case TERRAIN: mapTypeStr = mapTypePrefix + mapType.toLowercaseString();
-                 break;
-            case HYBRID: mapTypeStr = mapTypePrefix + mapType.toLowercaseString();
+            case SATELLITE:
+            case TERRAIN:
+            case HYBRID: 
+                 mapTypeStr = mapTypePrefix + mapType.toLowercaseString();
                  break;
             default: throw new MapException("Invalid Map Type");
         }
